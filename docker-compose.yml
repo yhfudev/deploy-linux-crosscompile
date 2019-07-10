@@ -1,0 +1,14 @@
+version: '2'
+services:
+
+  compile:
+    image: 'yhfu/qemu'
+    build:
+      context: qemu-docker
+    env_file: .env
+    volumes:
+      - ${DN_ROOTFS}:/target_root
+      - /dev:/target_root/dev
+      - /proc:/target_root/proc
+      - /sys:/target_root/sys
+
